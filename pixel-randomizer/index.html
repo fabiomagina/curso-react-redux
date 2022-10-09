@@ -35,8 +35,6 @@
     <div class="resp"></div>
 </body>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.19/lodash.min.js"></script>
 <script>
     const form_ = document.querySelector('form')
     const App = document.getElementsByClassName('resp')
@@ -72,10 +70,6 @@
         return novo_array
     }
 
-    function axios_post(obj) {
-        url = `${baseUrl}/alterado`
-        axios.post(url, obj)
-    }
 
     function run_randomizer(n, input1, input2) {
         console.log(n, input1, input2)
