@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 3rem;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 98vw;
+}
+
+.App .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    /* width: 100%; */
+}
+.App label {
+    background-color: aquamarine;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.App input {
+    padding: 2px 5px;
+    height: 60px;
+    width: 80px;
+    font-size: 2.8rem;
+    display: flex;
+    text-align: center;
+    margin-left: 10px
+}
+
+label.array {
+    background-color: rgb(136, 25, 95);
+    color: white;
+}
+
+input.array {
+    width: 300px;
+    font-size: 1.5rem;
+}
+
+body .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+.App .run-btn {
+    font-size: 10rem;
+    padding: 0px 45px;
+    margin-top: 20px
+}
+
+.resp p {
+    display: flex;
+    flex: 1;
+    font-size: 0.9rem;
+    line-break: anywhere;
+
+}

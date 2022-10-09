@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Pixel Randomizer</title>
+</head>
+
+<body>
+    <div class="App">
+        <header>
+            <h1>Pixel Randomizer</h1>
+        </header>
+        <form name="randomizer_form" >
+            <div class="row">
+                <label for="n">Número de Loops:</label>
+                <input id="n-input" name="n" type="number" placeholder="n? Loops">
+            </div>
+            <div class="row ">
+                <label class="array" for="n">Array1: </label>
+                <input class="array" id="n-input" name="Array 1" type="text"
+                    placeholder="1095, 293, 1043, 296, 1059, 285">
+            </div>
+            <div class="row ">
+                <label class="array" for="n">Array2: </label>
+                <input class="array" id="n-input" name="Array 2" type="text"
+                    placeholder="1095, 293, 1043, 296, 1059, 285">
+            </div>
+            <button class="run-btn">Run</button>
+        </form>
+    </div>
+    <div class="resp"></div>
+</body>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.19/lodash.min.js"></script>
+<script>
+    const form_ = document.querySelector('form')
+    const App = document.getElementsByClassName('resp')
+    const form = document.forms[0]
+
+    baseUrl = 'http://localhost:3000'
+    form_array = []
+
+    form.onsubmit = function (e) {
+        e.preventDefault()
+        const form = e.target
+        const formData = new FormData(form)
+        for (let valores of formData.values()) {
+            form_array.push(valores)
+        }
+        const n = form_array[0]
+        const array1 = form_array[1]
+        const array2 = form_array[2]
+        run_randomizer(n, array1, array2)
+    }
+
+    function addRandomNumbers(array) {
+        let novo_array = ""
+        for (var i = 0; i < array.length; i++) {
+            if (array[i]) {
+                const c = (Math.floor(Math.random() * 5) - 2)
+                let num = +array[i] + c
+                novo_array += (`${num},`)
+            } else {
+                novo_array += (',')
+            }
+        }
+        return novo_array
+    }
+
+    function axios_post(obj) {
+        url = `${baseUrl}/alterado`
+        axios.post(url, obj)
+    }
+
+    function run_randomizer(n, input1, input2) {
+        console.log(n, input1, input2)
+        let obj = {}
+        let obj_array = []
+        for (let i = 0; i < n; i++) {
+            const new_array1 = addRandomNumbers((input1).split(','))
+            const new_array2 = addRandomNumbers((input2).split(','))
+            obj = { id: i, array1: new_array1, array2: new_array2 }
+            obj_array.push(obj)
+        }
+        
+        let render = obj_array.map(obj => {
+            return `<div class="resp">
+                <h1>${obj.id}</h1>
+            <p>Array 1: ${obj.array1}</p>
+            <p>Array 2: ${obj.array2}</p>
+            </div>`
+        })
+        form_.innerHTML = ''
+        App[0].innerHTML = render
+
+    }
+
+
+</script>
+
+
+</html>
