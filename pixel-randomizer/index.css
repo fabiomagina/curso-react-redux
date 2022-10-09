@@ -5,7 +5,6 @@ body {
     height: 100vh;
     font-size: 3rem;
     text-align: center;
-    flex-wrap: wrap;
     width: 98vw;
 }
 
@@ -14,7 +13,6 @@ body {
     flex-direction: row;
     align-items: center;
     margin: 20px;
-    /* width: 100%; */
 }
 .App label {
     background-color: aquamarine;
@@ -27,7 +25,6 @@ body {
     height: 60px;
     width: 80px;
     font-size: 2.8rem;
-    display: flex;
     text-align: center;
     margin-left: 10px
 }
@@ -47,8 +44,6 @@ body .App {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    width: 100vw;
 }
 
 .App .run-btn {
@@ -58,9 +53,6 @@ body .App {
 }
 
 .resp p {
-    display: flex;
-    flex: 1;
     font-size: 0.9rem;
     line-break: anywhere;
-
 }
