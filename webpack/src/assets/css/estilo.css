@@ -1,0 +1,7 @@
+body {
+    background-color: rgb(255, 255, 255);
+    background-image: url(../imgs/favpng_checkbox-check-mark-clip-art.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
